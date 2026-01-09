@@ -13,7 +13,7 @@
             <?php
             $rows=$Ad->all();
             foreach($rows as $row):
-                dd($row);
+                dd($row['id']);
             ?>
                 <tr class="">
                     <td width="80%">

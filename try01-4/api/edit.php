@@ -14,26 +14,26 @@ $table=$_GET['table'];
 $db= ${ucfirst($table)};
 dd($_POST);
 dd($table);
-foreach($_POST['id'] as $key => $id){
-    if(isset($_POST['del']) && in_array($id,$_POST['del'])){ 
-        $db->del($id);
-    }else{
-        $row = $db->find($id);
-        switch ($table){
-            case 'title':
-                $row['text'] = $_POST['text'][$id];
-                $row['sh'] = ($_POST['sh'] == $id)?1:0;
-                break;
-            case 'ad':
-                $row['text'] = $_POST['text'][$id];
-                $row['sh'] = in_array($id,$_POST['sh'])?1:0;
-                break;    
-            default:
-                $_POST['sh'] = 1;
-                break;
-        }
-        $db->save($row);
-    }
-}
-to("../back.php?do={$table}");
+// foreach($_POST['id'] as $key => $id){
+//     if(isset($_POST['del']) && in_array($id,$_POST['del'])){ 
+//         $db->del($id);
+//     }else{
+//         $row = $db->find($id);
+//         switch ($table){
+//             case 'title':
+//                 $row['text'] = $_POST['text'][$id];
+//                 $row['sh'] = ($_POST['sh'] == $id)?1:0;
+//                 break;
+//             case 'ad':
+//                 $row['text'] = $_POST['text'][$id];
+//                 $row['sh'] = in_array($id,$_POST['sh'])?1:0;
+//                 break;    
+//             default:
+//                 $_POST['sh'] = 1;
+//                 break;
+//         }
+//         $db->save($row);
+//     }
+// }
+// to("../back.php?do={$table}");
 ?>
